@@ -16,6 +16,20 @@ const Stopwatch = () => {
         const seconds = String(timeInSeconds % 60).padStart(2, '0');
         return `${hours}:${minutes}:${seconds}`;
     };
+    return (
+        <div className="stopwatch-container">
+            <h1 className="stopwatch-title">Stopwatch</h1>
+            <div className="time-display">
+                {formatTime(time)}
+            </div>
+            <div className="buttons-container">
+                <button className="stopwatch-button start" onClick={() => setIsActive(true)}>Start</button>
+                <button className="stopwatch-button stop" onClick={() => setIsActive(false)}>Stop</button>
+                <button className="stopwatch-button reset" onClick={() => { setIsActive(false); setTime(0); }}>Restart</button>
+            </div>
+        </div>
+    );
+};
 
 
 export default Stopwatch;
